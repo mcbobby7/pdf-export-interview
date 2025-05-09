@@ -13,7 +13,7 @@ A simple page that has a button, that triggers a background job. This background
 **Requirements**:
 
 - Use QStash as a message queue ([docs here](https://upstash.com/docs/qstash/overall/getstarted))
-- The PDF URL that you can use is [`https://sylla-dev-public-bucket.s3.eu-central-1.amazonaws.com/books/47f4cad9aa3c005ce22fbdef05545308495bd571c55e02f7ae69353ac831d787`](https://sylla-dev-public-bucket.s3.eu-central-1.amazonaws.com/books/47f4cad9aa3c005ce22fbdef05545308495bd571c55e02f7ae69353ac831d787)
+- The PDF URL that you can use is [`this url here`](https://sylla-dev-public-bucket.s3.eu-central-1.amazonaws.com/books/47f4cad9aa3c005ce22fbdef05545308495bd571c55e02f7ae69353ac831d787)
 - The user never sees this source URL
 - You have to define a table for these PDF exports
 - Download URL expires in 120 seconds
