@@ -6,9 +6,9 @@ Within Sylla we have an ‘event-driven’ architecture which means that many us
 
 ### What do you need to build
 
-The idea is that we ‘mimmic’ some existing production behaviour of a PDF export. However, we’d like a DB table to store those PDF’s and have expiring URL’s to those PDF’s.
+The idea is that we mimic some existing production behaviour of a PDF export. However, we’d like a postgres table to store those PDF exports and have expiring URLs such that if a user visits that URL after expiry, nothing happens.
 
-A simple page that has a button, that triggers a background job. This background job produces a PDF url (this will be a dummy URL that we will specify). Then, the app would update the DB, store that ‘pdf export’, and subsequently will produce a temporary URL for downloading that. The link should expire in 120 seconds. That link, as soon as it’s available, should show up on the page where the trigger is.
+Therefore, you have to create a simple page that has a button, that triggers a background job. This background job produces a PDF url/PDF export (this will be a dummy URL that we will specify). Then, the app would update the DB, store that ‘pdf export’, and subsequently will produce a temporary URL for downloading that. The link should expire in 120 seconds. That link, as soon as it’s available, should show up on the page where the trigger is.
 
 **Requirements**:
 
