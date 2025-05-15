@@ -18,3 +18,6 @@ Therefore, you have to create a simple page that has a button, that triggers a b
 - You have to define a table for these PDF exports
 - Download URL expires in 120 seconds
 - As soon as the database is populated with this new PDF export, we have to update the UI to show the new Download URL
+
+**Doubts/questions**:
+Please email Dennis at `dennis.stander@sylla.io`
