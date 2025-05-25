@@ -6,15 +6,11 @@ import { queueExportJob } from '@/app/api/actions/export-pdf';
 import { useQuery } from '@tanstack/react-query';
 import { getExportByReference } from './api/actions/getSinglePDF';
 import { useRouter } from 'next/navigation';
+import { ExportData } from '@/lib/validation/exportData';
 
 /**
  * Type definition for the export data returned from the server.
  */
-type ExportData = {
-  url: string | null;
-  reference: string | null;
-  name: string | null;
-};
 
 /**
  * ClientHome is the main UI for triggering a PDF export

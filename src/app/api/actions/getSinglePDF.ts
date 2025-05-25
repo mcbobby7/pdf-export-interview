@@ -2,9 +2,11 @@
 
 import { db } from '@/db/database';
 import { pdfExports } from '@/db/schema';
+import { getErrorMessage } from '@/lib/errorRespose';
+import { ExportData } from '@/lib/validation/exportData';
 import { eq } from 'drizzle-orm';
 
-export async function getExportByReference(reference: string) {
+export async function getExportByReference(reference: string): Promise<ExportData> {
   try {
     const [record] = await db
       .select()
@@ -24,7 +26,7 @@ export async function getExportByReference(reference: string) {
       reference: null,
       name: null,
       createdAt: null,
-      error: error,
+      error: getErrorMessage(error),
     };
   }
 }
