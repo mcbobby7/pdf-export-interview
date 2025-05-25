@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { JSX, useEffect, useState } from 'react';
-import { queueExportJob } from '@/app/api/actions/export-pdf';
+import { queueExportJob } from '@/app/api/actions/exportPDF';
 import { useQuery } from '@tanstack/react-query';
 import { getExportByReference } from './api/actions/getSinglePDF';
 import { useRouter } from 'next/navigation';
@@ -49,7 +49,6 @@ export default function ClientHome(): JSX.Element {
 
       const res = await queueExportJob();
       setReference(res.reference);
-      console.log('res', res);
     } catch (error) {
       throw new Error('Export job failed: ' + String(error));
     }
@@ -66,7 +65,6 @@ export default function ClientHome(): JSX.Element {
         setRetrys((prev) => prev + 1);
         setDownloadUrl(null);
       }
-      console.log('data', data, retrys);
     }
   }, [data]);
   useEffect(() => {
@@ -93,7 +91,7 @@ export default function ClientHome(): JSX.Element {
       <button
         onClick={exportPdf}
         disabled={isLoading}
-        className='mt-6 w-full rounded-lg bg-blue-600 py-2.5 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50'
+        className='mt-6 w-full rounded-lg bg-blue-600 py-2.5 font-semibold text-white transition cursor-pointer hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50'
         aria-busy={isLoading}
       >
         {isLoading ? 'Generating PDF...' : 'Export PDF'}
@@ -113,7 +111,7 @@ export default function ClientHome(): JSX.Element {
           </p>
           <button
             onClick={exportPdf}
-            className='mt-3 rounded bg-red-100 px-3 py-1 text-xs text-red-700 transition hover:bg-red-200'
+            className='mt-3 rounded bg-red-100 cursor-pointer px-3 py-1 text-xs text-red-700 transition hover:bg-red-200'
           >
             Try Again
           </button>
