@@ -1,11 +1,11 @@
 import { db } from '@/db/database';
 import { pdfExports } from '@/db/schema';
 import { NextResponse } from 'next/server';
+import { verifySignatureAppRouter } from '@upstash/qstash/nextjs';
 
-export async function POST(req: Request) {
+async function handler(req: Request) {
   const body = await req.json();
   const { fileName, tempUrl, reference } = body;
-  // console.log("✅ /api/handle-job called", body);
 
   if (!fileName || !tempUrl) {
     return NextResponse.json({ error: 'Missing fileName or tempUrl' }, { status: 400 });
@@ -19,3 +19,6 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ success: true });
 }
+
+// Secure the handler with Upstash QStash signature verification
+export const POST = verifySignatureAppRouter(handler);
